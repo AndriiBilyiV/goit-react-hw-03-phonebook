@@ -13,8 +13,9 @@ export class App extends Component {
     filter: ''
   };
   componentDidMount() {
-    if (localStorage.getItem('contacts')) {
-      this.setState({ contacts: JSON.parse(localStorage.getItem('contacts')) })
+    const persistContacts = localStorage.getItem('contacts');
+    if (persistContacts) {
+      this.setState({ contacts: JSON.parse(persistContacts) })
     }
   }
   componentDidUpdate(prevProps, prevState) {
